@@ -128,7 +128,6 @@ private:
 
     _ps2VM.Initialize();
 
-    CAppConfig::GetInstance().SetPreferenceString(PS2VM_CDROM0PATH, [_romPath fileSystemRepresentation]);
     CAppConfig::GetInstance().SetPreferenceInteger(PREF_CGSHANDLER_PRESENTATION_MODE, CGSHandler::PRESENTATION_MODE_FIT);
 
     _bindings[PS2::CControllerInfo::START] = std::make_shared<CSimpleBinding>(OEPS2ButtonStart);
@@ -174,8 +173,17 @@ private:
     presentationParams.mode = presentationMode;
     _ps2VM.m_ee->m_gs->SetPresentationParams(presentationParams);
 
-    CPS2OS* os = _ps2VM.m_ee->m_os;
-    os->BootFromCDROM();
+    CAppConfig::GetInstance().SetPreferenceString(PS2VM_CDROM0PATH, [_romPath fileSystemRepresentation]);
+    CAppConfig::GetInstance().SetPreferenceString(PREF_PS2_HOST_DIRECTORY, [[[self supportDirectoryPath] stringByAppendingPathComponent:@"/vfs/host"] fileSystemRepresentation]);
+    CAppConfig::GetInstance().SetPreferenceString(PREF_PS2_MC0_DIRECTORY,  [[[self supportDirectoryPath] stringByAppendingPathComponent:@"/vfs/mc0"] fileSystemRepresentation]);
+    CAppConfig::GetInstance().SetPreferenceString(PREF_PS2_MC1_DIRECTORY,  [[[self supportDirectoryPath] stringByAppendingPathComponent:@"/vfs/mc1"] fileSystemRepresentation]);
+    
+    CPS2OS& os = *_ps2VM.m_ee->m_os;
+
+    _ps2VM.Pause();
+    _ps2VM.Reset();
+
+    os.BootFromCDROM();
 
     // TODO: Play! starts a bunch of threads. They all need to be realtime.
     _ps2VM.Resume();
@@ -190,7 +198,7 @@ private:
 
 - (OEGameCoreRendering)gameCoreRendering
 {
-    return OEGameCoreRenderingOpenGL2Video;
+    return OEGameCoreRenderingOpenGL3Video;
 }
 
 - (NSTimeInterval)frameInterval
