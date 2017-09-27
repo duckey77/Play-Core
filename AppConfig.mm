@@ -1,5 +1,6 @@
 #include "AppConfig.h"
 #include "PathUtils.h"
+#include "PureiGameCore.h"
 
 #define BASE_DATA_PATH            (L"Play Data Files")
 #define CONFIG_FILENAME           (L"config.xml")
@@ -17,13 +18,11 @@ CAppConfig::~CAppConfig()
 
 Framework::CConfig::PathType CAppConfig::GetBasePath()
 {
+    //  get current or return fails,  lets return the original BASE_DATA_PATH for now til I can figure this out
     
-    //  need to return
-    //      [[self supportDirectoryPath] fileSystemRepresentation]
+    GET_CURRENT_OR_RETURN(Framework::PathUtils::GetPersonalDataPath() / BASE_DATA_PATH);
     
-    //  GET_CURRENT_OR_RETURN();
-    
-    auto result = Framework::PathUtils::GetPersonalDataPath() / BASE_DATA_PATH;
+    auto result =  [[current supportDirectoryPath] fileSystemRepresentation];
     return result;
 }
 

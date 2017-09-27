@@ -18,8 +18,6 @@
 #import <OpenEmuBase/OERingBuffer.h>
 #import <OpenEmuBase/OETimingUtils.h>
 
-static __weak PureiGameCore *_current;
-
 class CGSH_OpenEmu : public CGSH_OpenGL
 {
 public:
@@ -102,6 +100,8 @@ private:
 
 @end
 
+__weak PureiGameCore *_current = 0;
+
 @implementation PureiGameCore
 {
     @public
@@ -109,6 +109,14 @@ private:
     CPS2VM _ps2VM;
     NSString *_romPath;
     BindingPtr _bindings[PS2::CControllerInfo::MAX_BUTTONS];
+}
+
+- (id)init
+{
+    self = [super init];
+    
+    _current = self;
+    return self;
 }
 
 - (void)dealloc
@@ -124,8 +132,6 @@ private:
 
 - (void)setupEmulation
 {
-    _current = self;
-
     _ps2VM.Initialize();
 
     CAppConfig::GetInstance().SetPreferenceInteger(PREF_CGSHANDLER_PRESENTATION_MODE, CGSHandler::PRESENTATION_MODE_FIT);

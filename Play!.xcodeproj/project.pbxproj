@@ -236,7 +236,7 @@
 		3DC5FD8C1BDB7FB1005DA404 /* X86Assembler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5FD721BDB7FB1005DA404 /* X86Assembler.cpp */; };
 		3DC5FD8D1BDB7FB1005DA404 /* X86Assembler_Fpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5FD731BDB7FB1005DA404 /* X86Assembler_Fpu.cpp */; };
 		3DC5FD8E1BDB7FB1005DA404 /* X86Assembler_Sse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5FD741BDB7FB1005DA404 /* X86Assembler_Sse.cpp */; };
-		3E5566511F7B5E9000610937 /* AppConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E55664F1F7B593700610937 /* AppConfig.cpp */; };
+		3E5566511F7B5E9000610937 /* AppConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3E55664F1F7B593700610937 /* AppConfig.mm */; };
 		5553B7CA1EEC62B1003F89B5 /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5553B7C61EEC62B1003F89B5 /* Buffer.cpp */; };
 		5553B7CB1EEC62B1003F89B5 /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5553B7C71EEC62B1003F89B5 /* Context.cpp */; };
 		5553B7CC1EEC62B1003F89B5 /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5553B7C81EEC62B1003F89B5 /* Device.cpp */; };
@@ -786,7 +786,7 @@
 		3DC5FEFD1BDB7FF6005DA404 /* ZipInflateStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipInflateStream.h; sourceTree = "<group>"; };
 		3DC5FEFE1BDB7FF6005DA404 /* ZipStoreStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipStoreStream.h; sourceTree = "<group>"; };
 		3DE1F1921BDE1BB00061A39E /* SoundHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundHandler.h; path = Play/tools/PsfPlayer/Source/SoundHandler.h; sourceTree = "<group>"; };
-		3E55664F1F7B593700610937 /* AppConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppConfig.cpp; sourceTree = "<group>"; };
+		3E55664F1F7B593700610937 /* AppConfig.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppConfig.mm; sourceTree = "<group>"; };
 		5553B7C61EEC62B1003F89B5 /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buffer.cpp; sourceTree = "<group>"; };
 		5553B7C71EEC62B1003F89B5 /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
 		5553B7C81EEC62B1003F89B5 /* Device.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Device.cpp; sourceTree = "<group>"; };
@@ -896,7 +896,7 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3E55664F1F7B593700610937 /* AppConfig.cpp */,
+				3E55664F1F7B593700610937 /* AppConfig.mm */,
 				3D0501A01BDB91F6003E98C5 /* OEPS2SystemResponderClient.h */,
 				3DC5F8571BDB6D54005DA404 /* PureiGameCore.h */,
 				3DC5F8581BDB6D54005DA404 /* PureiGameCore.mm */,
@@ -1930,7 +1930,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E5566511F7B5E9000610937 /* AppConfig.cpp in Sources */,
+				3E5566511F7B5E9000610937 /* AppConfig.mm in Sources */,
 				3DC5FC3E1BDB7811005DA404 /* IPU.cpp in Sources */,
 				3DC5FC971BDB7811005DA404 /* MemoryMap.cpp in Sources */,
 				3DC5FC651BDB7811005DA404 /* Iop_Dmac.cpp in Sources */,
